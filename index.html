@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>onclinical · Eficacia y Seguridad bajo Prescripción</title>
+  <meta name="description" content="onclinical - Eficacia y Seguridad bajo Prescripción. Sitio web oficial en construcción.">
+  <meta name="theme-color" content="#1a4dab">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="onclinical · Eficacia y Seguridad bajo Prescripción">
+  <meta property="og:description" content="Sitio web oficial en construcción. Próximamente disponible.">
+  <meta property="og:image" content="https://onclinical.github.io/assets/logo.png">
+  <meta property="og:type" content="website">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #1a4dab;
+      --primary-light: #0b73b4;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --bg-gradient: radial-gradient(circle at 50% 18%, rgba(11, 115, 180, 0.08) 0%, rgba(26, 77, 171, 0.04) 35%, #f8fafc 85%);
+      --card-bg: rgba(255, 255, 255, 0.92);
+      --card-border: rgba(226, 232, 240, 0.85);
+      --card-shadow: 0 25px 50px -12px rgba(26, 77, 171, 0.09), 0 0 0 1px rgba(226, 232, 240, 0.6);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 620px;
+      animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 56px 44px;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #0b73b4 0%, #1a4dab 100%);
+    }
+
+    .logo-wrapper {
+      margin-bottom: 36px;
+    }
+
+    .logo {
+      max-width: 340px;
+      width: 100%;
+      height: auto;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.02);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 24px;
+      letter-spacing: 0.02em;
+    }
+
+    .pulse-dot {
+      width: 9px;
+      height: 9px;
+      background: var(--primary-light);
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(11, 115, 180, 0.6);
+      animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(11, 115, 180, 0.6);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(11, 115, 180, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(11, 115, 180, 0);
+      }
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: #0b224e;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    p.lead {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 480px;
+      margin: 0 auto 36px;
+    }
+
+    .contact-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 12px;
+    }
+
+    .contact-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #64748b;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      word-break: break-all;
+    }
+
+    .contact-email:hover {
+      color: var(--primary-light);
+      text-decoration: underline;
+    }
+
+    .contact-email svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    footer {
+      margin-top: 28px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .card {
+        padding: 40px 24px;
+        border-radius: 20px;
+      }
+      .logo {
+        max-width: 270px;
+      }
+      h1 {
+        font-size: 1.55rem;
+      }
+      p.lead {
+        font-size: 0.98rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="card">
+      <div class="logo-wrapper">
+        <img src="assets/logo.png" alt="onclinical - Eficacia y Seguridad bajo Prescripción" class="logo">
+      </div>
+
+      <div class="status-badge">
+        <span class="pulse-dot"></span>
+        <span>En construcción</span>
+      </div>
+
+      <h1>Sitio web en construcción</h1>
+
+      <p class="lead">
+        Estamos desarrollando nuestra nueva plataforma digital para ofrecer la mejor experiencia en soluciones clínicas bajo prescripción.
+      </p>
+
+      <div class="contact-box">
+        <div class="contact-title">Contacto y Consultas</div>
+        <a href="mailto:admin@onclinical.com" class="contact-email">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+          admin@onclinical.com
+        </a>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2026 onclinical. Todos los derechos reservados.
+    </footer>
+  </div>
+
+</body>
+</html>
+
